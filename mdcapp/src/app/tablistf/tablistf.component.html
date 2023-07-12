@@ -1,0 +1,190 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #CCE8FD;">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="#">
+          <img src="../assets/images/MDC.jpeg" height="30" alt="MDC Logo" loading="lazy">
+        </a>
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link dark-nav-link" routerLink="/menu">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/tabl">Equipe</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/tabl">Projets</a>
+          </li>
+        </ul>
+        <!-- Left links -->
+      </div>
+      <!-- Collapsible wrapper -->
+  
+      <!-- Right elements -->
+      <div class="d-flex align-items-center">
+  
+        <!-- Notifications -->
+        <div class="dropdown">
+          <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-bell"></i>
+            <span class="badge rounded-pill badge-notification bg-danger">1</span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+            <li>
+              <a class="dropdown-item" href="#">Some news</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Another news</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </li>
+          </ul>
+        </div>
+  
+        <!-- Avatar -->
+        <div class="dropdown">
+          <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="25" alt="Black and White Portrait of a Man" loading="lazy">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+            <li>
+              <a class="dropdown-item" href="#">My profile</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Settings</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Right elements -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+  <h1>Notes des frais de déplacement</h1>
+ <!--first form-->
+
+ <form class="needs-validation" novalidate>
+  <div class="form-row">
+   <div class="search">
+    <div class="y">
+      <label for="Num">N° d'orde: </label>
+      <input type="text" class="form-control" id="Num" placeholder="numero d'ordre" value="" required>  
+    </div>
+
+   
+      <div class="dates">
+        <label for="debut">DU:</label>
+        <input type="date" id="birthdayd" name="debut"  [(ngModel)]="todayDate">
+        <label class="label2" for="fin">AU:</label>
+        <input type="date" id="birthdayf" name="fin"  [(ngModel)]="todayDate">
+      </div>
+   
+    <div class="bt">
+    <button  routerLink="/tabl" class="btn-primary" type="submit">Rechercher</button>
+    </div>
+   </div>
+</div>
+<!--table frais-->
+<div class="t">
+  <table class="table table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>Num OM</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Depart</th>
+        <th>Retour</th>
+        <th>Frais de transport</th>
+        <th>Hébergement</th>
+        <th>Transport</th>
+        <th>Repas</th>
+        <th>Kilometres</th>
+        <th>Indémnités au kilomètre</th>
+        <th>Frais divers</th>
+        <th>Total</th>
+        <th>Avance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ordremission of ordremissionlist">
+        
+        <td>
+          {{ordremission.numOrdre}}     
+        </td>
+        <td>
+          {{ordremission.dateMission}}
+          
+        </td>
+        <td>
+          {{ordremission.objetMission}}
+        </td>
+        <td>
+          {{ordremission.debutMission}}
+        </td>
+        <td>
+          {{ordremission.finMission}}
+        </td>
+        <td>
+          <input type="text" class="form-control" id="validationTooltip02" placeholder="frais" value="" required>
+        </td>
+        <td>
+          <input type="text" class="form-control" id="validationTooltip02" placeholder="Hebergement" value="" required>
+        </td>
+        <td>
+          <input type="text" class="form-control" id="validationTooltip02" placeholder="Transport" value="" required>
+        </td>
+        <td>
+          <input type="text" class="form-control" id="validationTooltip02" placeholder="Repas" value="" required>
+        </td>
+        <td>
+          <input type="text" class="form-control" id="validationTooltip02" placeholder="Km" value="" required>
+        </td>
+        <td>
+          <input type="text" class="form-control" id="validationTooltip02" placeholder="Indémnités" value="" required>
+        </td>
+        <td>
+          <input type="text" class="form-control" id="validationTooltip02" placeholder="frais Divers" value="" required>
+        </td>
+        <td>
+          <input readonly type="text" class="form-control" id="validationTooltip02" placeholder="Total" value="" required>
+        </td>
+        <td>
+           <input type="text" class="form-control" id="validationTooltip02" placeholder="Avance" value="" required>
+        </td>
+      </tr>
+      
+     
+    </tbody>
+  </table>
+  </div>
+  <!--table frais-->
+  <div class="x">
+    <label for="TI">Total indémnités:</label>
+    <input type="text"  id="TI" placeholder="Totale Indémnités" value="" >
+    <label for="AV">Avance: </label>
+    <input type="text"  id="AV" placeholder="Avance sur frais" value="" > 
+    <label for="ap">A Payer: </label>
+    <input type="text"  id="ap" placeholder="Totale à payer" value="" >
+  </div>
+
+  <div class="btn">
+    <button  routerLink="/tabl" class="btn btn-primary" type="submit">Ajouter</button>
+    <button  routerLink="/tabl" class="btn btn-primary" type="submit">modifier</button>
+    <button  routerLink="/tabl" class="btn btn-primary" type="button">Supprimer</button>
+    <button  routerLink="/tabl" class="btn btn-primary" type="button">Imprimer</button>
+  </div>
+</form>
